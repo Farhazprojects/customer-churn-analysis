@@ -1,0 +1,13 @@
+feature,test,statistic,p_value,effect_size,effect_measure,p_adjusted,significant_at_0.05
+tenure_months,Mann-Whitney U,3585986.5,5.388706160201565e-54,-0.243,rank-biserial r,6.466447392241878e-53,yes
+contract_type,chi-square,296.7,1.7353482049502704e-66,0.206,Cramer's V,2.0824178459403244e-65,yes
+logins_last_30d,Mann-Whitney U,3781174.5,6.409797341946507e-38,-0.202,rank-biserial r,7.69175681033581e-37,yes
+plan,chi-square,131.2,3.306590903644122e-29,0.137,Cramer's V,3.967909084372946e-28,yes
+support_tickets_90d,Mann-Whitney U,5380037.5,2.3057247945246678e-20,0.136,rank-biserial r,2.7668697534296014e-19,yes
+price_increase_last_12m,chi-square,116.3,4.0591512796607844e-27,0.129,Cramer's V,4.870981535592941e-26,yes
+seats,Mann-Whitney U,4158653.5,4.228681675027977e-15,-0.122,rank-biserial r,5.074418010033573e-14,yes
+completed_onboarding,chi-square,83.9,5.1714258518138076e-20,0.109,Cramer's V,6.205711022176569e-19,yes
+payment_method,chi-square,52.1,4.859016216390308e-12,0.086,Cramer's V,5.830819459668369e-11,yes
+monthly_fee,Mann-Whitney U,4329926.5,3.146883206751877e-08,-0.086,rank-biserial r,3.7762598481022525e-07,yes
+state,chi-square,7.3,0.20270010433200286,0.032,Cramer's V,1.0,no
+industry,chi-square,2.5,0.6431005641196326,0.019,Cramer's V,1.0,no

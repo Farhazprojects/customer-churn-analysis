@@ -1,0 +1,21 @@
+feature,segment,customers,churn_rate_pct
+contract_type,Annual,2712,14.8
+contract_type,Monthly,4288,33.4
+plan,Basic,3184,32.5
+plan,Premium,1219,17.6
+plan,Standard,2597,22.5
+payment_method,Card auto-pay,3318,24.4
+payment_method,Direct debit,2047,23.6
+payment_method,Manual invoice,1635,33.0
+completed_onboarding,No,2882,32.0
+completed_onboarding,Yes,4118,22.1
+price_increase_last_12m,No,5245,22.9
+price_increase_last_12m,Yes,1755,36.0
+tenure_band,0-6 months,1431,36.4
+tenure_band,7-12 months,1605,31.9
+tenure_band,13-24 months,2240,24.9
+tenure_band,25+ months,1724,14.1
+tickets_band,0 tickets,2870,21.4
+tickets_band,1 ticket,2524,26.8
+tickets_band,2 tickets,1199,32.1
+tickets_band,3+ tickets,407,38.8

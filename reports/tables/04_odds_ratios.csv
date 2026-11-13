@@ -1,0 +1,22 @@
+feature,coefficient,odds_ratio
+contract_type_Monthly,1.098,2.999
+price_increase_last_12m_Yes,0.682,1.977
+tenure_months,-0.601,0.549
+payment_method_Manual invoice,0.476,1.609
+completed_onboarding_Yes,-0.473,0.623
+plan_Premium,-0.465,0.628
+logins_last_30d,-0.342,0.71
+plan_Standard,-0.321,0.725
+state_SA,0.305,1.357
+support_tickets_90d,0.293,1.34
+industry_Professional services,-0.222,0.801
+state_VIC,0.191,1.211
+industry_Retail,-0.122,0.886
+seats,0.121,1.129
+industry_Trades,-0.086,0.918
+payment_method_Direct debit,-0.086,0.918
+state_Other,-0.059,0.943
+logins_missing,-0.054,0.947
+state_WA,-0.027,0.974
+state_QLD,0.017,1.017
+industry_Hospitality,-0.009,0.991
