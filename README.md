@@ -86,6 +86,12 @@ The model shows association, not cause. Customers on annual contracts may be mor
 
 The offer cost, save rate and months saved are assumptions. The dollar figures are for the 1,750 test customers only and would be about four times larger for the full base.
 
+## Dashboard
+
+The churn results are also built as a Tableau workbook with three dashboards. The workbook, screenshots and the Power BI build pack are in the [dashboard](dashboard/README.md) folder.
+
+![Who churns](dashboard/screenshots/tableau_1_who_churns.png)
+
 ## How to run it
 
 ```bash
@@ -103,6 +109,7 @@ data/               subscriptions.csv (synthetic)
 src/                data generator and analysis script
 reports/tables/     data quality, segment rates, tests, odds ratios, lift, campaign, sensitivity
 reports/figures/    charts
+dashboard/          Tableau workbook, screenshots and Power BI build pack
 ```
 
 ## Business analyst skills shown
