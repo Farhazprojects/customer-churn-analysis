@@ -178,7 +178,7 @@ def fit_model(df: pd.DataFrame):
 
     scored = X_test.assign(churned=y_test.values, churn_probability=proba,
                            monthly_fee=df.loc[X_test.index, "monthly_fee"])
-    return scored, odds, auc
+    return scored, odds, auc, model
 
 
 # ----------------------------------------------------- 5. lift and offer cost
@@ -258,7 +258,7 @@ def main() -> None:
     print(seg.to_string(index=False), "\n")
     tests = hypothesis_tests(df)
     print(tests.to_string(index=False), "\n")
-    scored, odds, auc = fit_model(df)
+    scored, odds, auc, _ = fit_model(df)
     print(f"Holdout ROC AUC: {auc:.3f} on {len(scored):,} customers\n")
     print(odds.round(3).to_string(index=False), "\n")
     lift, plan, sens = lift_and_business_case(scored)

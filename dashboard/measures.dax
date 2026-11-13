@@ -1,0 +1,61 @@
+// Power BI measures for the churn model.
+// Table: customers_scored (one row per customer).
+// Two what-if parameters are needed (Modeling > New parameter > Numeric range):
+//   Save Rate   from 0.05 to 0.50, step 0.05, default 0.25
+//   Offer Cost  from 20 to 120, step 10, default 60
+// Power BI creates the tables and the [Save Rate Value] and [Offer Cost Value] measures.
+
+Customers = COUNTROWS ( customers_scored )
+
+Churned Customers = SUM ( customers_scored[churned] )
+
+Churn Rate % = DIVIDE ( [Churned Customers], [Customers] )
+
+// The rate for everything currently selected by slicers, used as a reference line.
+Overall Churn Rate % = CALCULATE ( [Churn Rate %], ALLSELECTED ( customers_scored ) )
+
+Monthly Fee Lost =
+CALCULATE ( SUM ( customers_scored[monthly_fee] ), customers_scored[churned] = 1 )
+
+Average Churn Probability = AVERAGE ( customers_scored[churn_probability] )
+
+// Lift: churn rate in a decile divided by the rate across all deciles.
+Lift =
+DIVIDE (
+    [Churn Rate %],
+    CALCULATE ( [Churn Rate %], ALL ( customers_scored[risk_decile] ) )
+)
+
+// Retention offer. Put risk_decile on the axis and filter dataset = "Test".
+Revenue Saved =
+[Save Rate Value]
+    * CALCULATE ( SUM ( customers_scored[annual_fee] ), customers_scored[churned] = 1 )
+
+Offer Spend = [Offer Cost Value] * [Customers]
+
+Net Value = [Revenue Saved] - [Offer Spend]
+
+// Net value of contacting this decile and every riskier one.
+Net Value Cumulative =
+VAR CurrentDecile = MAX ( customers_scored[risk_decile] )
+RETURN
+    CALCULATE (
+        [Net Value],
+        FILTER (
+            ALL ( customers_scored[risk_decile] ),
+            customers_scored[risk_decile] <= CurrentDecile
+        )
+    )
+
+Customers Contacted Cumulative =
+VAR CurrentDecile = MAX ( customers_scored[risk_decile] )
+RETURN
+    CALCULATE (
+        [Customers],
+        FILTER (
+            ALL ( customers_scored[risk_decile] ),
+            customers_scored[risk_decile] <= CurrentDecile
+        )
+    )
+
+Campaign ROI % = DIVIDE ( [Net Value Cumulative], [Offer Cost Value] * [Customers Contacted Cumulative] )
